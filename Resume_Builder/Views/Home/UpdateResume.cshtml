@@ -1,0 +1,101 @@
+﻿@model Resume_Builder.Models.ResumeModel
+@{
+    ViewData["Title"] = "UpdateResume";
+    ResumeModel resume = TempData["resTemp"] as ResumeModel;
+}
+
+<h1>Labot CV</h1>
+<br />
+<h3>Pamatdati</h3>
+<form action="/home/ResumeUpdate" method="post">
+
+    <div class="form-group">
+        <input type="hidden" asp-for="Id" value="@resume.Id" />
+        <label for="name">Vārds:</label>
+        <input type="text" name="name" asp-for="Name" value="@resume.Name">
+        
+    </div>
+    <div class="form-group">
+        <label for="surname">Uzvārds:</label>
+        <input type="text" name="surname" asp-for="Surname" value="@resume.Surname">
+
+    </div>
+    <div class="form-group">
+        <label for="email">E-pasts:</label>
+        <input type="text" name="email" asp-for="Email" value="@resume.Email">
+
+    </div>
+    <div class="form-group">
+        <label for="phone">Telefona numurs:</label>
+        <input type="text" name="phone" asp-for="Phone"value="@resume.Phone">
+
+    </div>
+    <div class="form-group">
+        <label for="adress">Adrese</label>
+        <input type="text" name="adress" asp-for="Adress" value="@resume.Adress">
+
+    </div>
+    <div class="form-group">
+        <label for="city">Pilsēta</label>
+        <input type="text" name="city" asp-for="City" value="@resume.City">
+
+    </div>
+    <div class="form-group">
+        <label for="country">Valsts</label>
+        <input type="text" name="country" asp-for="Country" value="@resume.Country">
+    </div>
+    <div class="form-group">
+        <label for="indexx">Indekss</label>
+        <input type="text" name="indexx" asp-for="Indexx" value="@resume.Indexx">
+    </div>
+
+    <h3>Izglītība</h3>
+
+    <div class="form-group">
+        <label for="university">Izglītības iestāde:</label>
+        <input type="text" name="university" asp-for="University" value="@resume.University">
+    </div>
+    <div class="form-group">
+        <label for="study">Studiju virziens:</label>
+        <input type="text" name="study" asp-for="Study" value="@resume.Study">
+    </div>
+    <div class="form-group">
+        <label for="degree">Izglītības līmenis:</label>
+        <input type="text" name="degree" asp-for="Degree" value="@resume.Degree">
+    </div>
+    <div class="form-group">
+        <label for="studyTimeFrom">Mācības no (gads): </label>
+        <input type="text" name="studyTimeFrom" asp-for="StudyTimeFrom" value="@resume.StudyTimeFrom">
+    </div>
+    <div class="form-group">
+        <label for="studyTimeTo">Mācības līdz (gads): </label>
+        <input type="text" name="studyTimeTo" asp-for="StudyTimeTo" value="@resume.StudyTimeTo">
+    </div>
+
+    <h3>Darba pieredze</h3>
+
+    <div class="form-group">
+        <label for="job">Uzņēmuma nosaukums</label>
+        <input type="text" name="job" asp-for="Job" value="@resume.Job">
+    </div>
+    <div class="form-group">
+        <label for="title">Ieņemamais amats</label>
+        <input type="text" name="title" asp-for="Title" value="@resume.Title">
+    </div>
+    <div class="form-group">
+        <label for="description">Darba pienākumi / Apraksts </label>
+        <textarea name="description" asp-for="Description" value="@resume.Description" ></textarea>
+    </div>
+    <div class="form-group">
+        <label for="workTimeFrom">Darba attiecības uzsāktas (gads):</label>
+        <input type="text" name="workTimeFrom" asp-for="WorkTimeFrom" value="@resume.WorkTimeFrom">
+    </div>
+    <div class="form-group">
+        <label for="workTimeTo">Darba attiecības pārtrauktas (gads):</label>
+        <input type="text" name="workTimeTo" asp-for="WorkTimeTo" value="@resume.WorkTimeTo">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Saglabāt</button>
+
+    </form>
+

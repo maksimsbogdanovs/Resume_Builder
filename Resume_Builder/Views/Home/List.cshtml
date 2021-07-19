@@ -1,0 +1,43 @@
+﻿@model Resume_Builder.Models.ResumeModel
+
+@{ViewData["Title"] = "List";}
+
+<div class="container">
+
+    @if (ViewBag.resumes != null && ViewBag.resumes.Count >= 1)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Vārds</th>
+                    <th scope="col">Uzvārds</th>
+                    <th scope="col">E-pasts</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var resumes in ViewBag.resumes)
+                {
+                    <tr>
+                        <td>@resumes.Name</td>
+                        <td>@resumes.Surname</td>
+                        <td>@resumes.Email</td>
+                        <td>
+                            <form asp-action="UpdateResume" asp-controller="Home" method="post">
+                                <input type="hidden" asp-for="Id" value="@resumes.Id" />
+                                <button type="submit" class="btn btn-primary">Rediģēt</button>
+                            </form>
+                            <form asp-action="DeleteResume" asp-controller="Home" method="post">
+                                <input type="hidden" asp-for="Id" value="@resumes.Id" />
+                                <button type="submit" class="btn btn-primary">Dzēst</button>
+                            </form>
+                            <form asp-action="Display" asp-controller="Home" method="get">
+                                <input type="hidden" asp-for="Id" value="@resumes.Id" />
+                                <button type="submit" class="btn btn-primary">Apskatīt</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

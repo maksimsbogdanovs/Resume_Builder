@@ -1,0 +1,33 @@
+﻿@model Resume_Builder.Models.ResumeModel
+
+@{ViewData["Title"] = "Display";
+    ResumeModel resume = TempData["disTemp"] as ResumeModel;
+}
+<input type="hidden" asp-for="Id" value="@resume.Id" />
+
+<div class="form-group">
+
+    <h1>@resume.Name @resume.Surname CV</h1>
+    <br />
+    <h5>Personas dati</h5>
+    <p>@resume.Name</p>
+    <p>@resume.Surname</p>
+    <p>@resume.Email</p>
+    <p>@resume.Phone</p>
+    <h5>Adrese</h5>
+    <p>@resume.Adress</p>
+    <p>@resume.City</p>
+    <p>@resume.Country</p>
+    <p>LV-@resume.Indexx</p>
+    <h5>Izglītība</h5>
+    <p>@resume.University</p>
+    <p>@resume.Study</p>
+    <p>@resume.Degree</p>
+    <p>@resume.StudyTimeFrom-@resume.StudyTimeTo</p>
+    <h5>Darba pieredze</h5>
+    <p>SIA @resume.Job</p>
+    <p>@resume.Title</p>
+    <p>@resume.Description</p>
+    <p>@resume.WorkTimeFrom-@resume.WorkTimeTo</p>
+
+</div>
